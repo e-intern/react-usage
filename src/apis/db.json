@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "fullname": "ÜMİT KARABACAK",
+      "salary": "6000",
+      "department": "IT",
+      "id": 1
+    },
+    {
+      "fullname": "HÜSEYİN ULAŞ",
+      "salary": "12500",
+      "department": "IT",
+      "id": 2
+    },
+    {
+      "fullname": "SEMİH KONUK",
+      "salary": "10000",
+      "department": "IT",
+      "id": 3
+    }
+  ]
+}
