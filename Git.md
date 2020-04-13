@@ -50,9 +50,9 @@ git init
 	Mevcut dizin üzerinde git projesi oluşturmaya yarar. (Oluşturulan git proje dosyaları gizli olarak oluşturulur)
 
 git add .
-	Mevcut dizini git'e (stating area/geçiş bölgesi) eklemeye olanak sağlar.
+	Mevcut dizini git'e (staging area/geçiş bölgesi) eklemeye olanak sağlar.
 git add filename
-	Belirtilen dosyayı git'e (stating area/geçiş bölgesi) eklmeye olanak sağlar.
+	Belirtilen dosyayı git'e (staging area/geçiş bölgesi) eklmeye olanak sağlar.
 
 git commit -m "neden versiyon alındığını açıklayıcı bir isim olmalı"
 	Stating areada bulunan dosyaları git deposuna (repository'sine) eklemek için kullanılır.
@@ -61,4 +61,25 @@ git log
 	git versiyonlarını listelemek için kullanılır.
 
 git status
-	Git projesinde yapılan değişiklikleri görebilmek için kullanılır.
+	Git projesinde yapılan değişiklikleri görebilmek için kullanılır. (eklenen, silinen yada düzenlenen)
+
+git diff | git diff filename
+	Git üzerinde ki var olan değişiklikleri satır satır olarak görebilmeye olanak sağlar.
+
+git diff --staged
+	Git repository ve git staging arasında ki değişiklikleri görebilmeye olanak sağlar.
+
+GIT LIFECYCLE 
+	|ÇALIŞMA DİZİNİ| ==> ADD ==> |STAGING AREA| ==> COMMIT ==> |GIT REPOSITORY|
+
+git rm filename
+	Git üzerinden dosya silmek için kullanılabilir.
+
+git rm -r foldername
+	Git üzerinden klasörü ve içerisinde ki dosyaları silmek için kullanılabilir.
+
+git mv oldFileName newFileName
+	Git üzerinde eski dosya ismini yeni dosya ismiyle değiştirmek için kullanılır.
+
+git mv fileName folderName
+	Git üzerinde ki bir dosyayı istenilen yere taşımak için kullanılabilir.
