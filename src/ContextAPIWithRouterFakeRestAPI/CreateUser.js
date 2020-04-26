@@ -3,6 +3,7 @@ import UserConsumer from './Context'
 import axios from 'axios';
 
 class CreateUser extends Component {
+    
     state = {
         fullname: "",
         salary: "",
@@ -19,7 +20,7 @@ class CreateUser extends Component {
 
     ChangeInput = (e) => {
         this.setState({
-            [e.target.id]: e.target.value
+            [e.target.id]: e.target.value.toUpperCase()
         })
     }
 
@@ -70,7 +71,10 @@ class CreateUser extends Component {
                                         <div className="alert alert-danger">Bütün alanları doldurmak zorundasınız!</div>
                                         : null
                                 }
-                                <form onSubmit={this.AddUser.bind(this, dispatch)}>
+                                <div className="alert alert-info ">
+                                    Ekleme yapılırken kullanılan bütün harfler büyük harfe çevrilecektir.
+                                </div>
+                                <form autoComplete="false" onSubmit={this.AddUser.bind(this, dispatch)}>
                                     <div className="form-group row">
                                         <label htmlFor="fullname" className="col-4 col-form-label">Adı Soyadı</label>
                                         <div className="col-8">
@@ -121,4 +125,5 @@ class CreateUser extends Component {
         )
     }
 }
+
 export default CreateUser;

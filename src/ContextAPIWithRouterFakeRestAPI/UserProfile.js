@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class UserProfile extends Component {
 
     state = {
+        id: null,
         fullname: "",
         department: "",
         salary: "",
@@ -15,14 +17,9 @@ class UserProfile extends Component {
 
         var response = await axios.get(`http://localhost:3005/users/${id}`);
         if (response.status === 200) {
-            // this.setState({
-            //     isResponse: true,
-            //     fullname: response.data.fullname,
-            //     department: response.data.department,
-            //     salary: response.data.salary,
-            // })
-            const { fullname, department, salary } = response.data;
+            const { id, fullname, department, salary } = response.data;
             this.setState({
+                id,
                 fullname,
                 department,
                 salary,
@@ -33,7 +30,7 @@ class UserProfile extends Component {
 
     render() {
         console.log(this.props.match); //ile request bilgilerini alabilirim
-        const { isResponse, fullname, department, salary } = this.state;
+        const { isResponse, id, fullname, department, salary } = this.state;
         {
             return (isResponse === true ?
                 <div className="card text-center">
@@ -41,6 +38,7 @@ class UserProfile extends Component {
                     <div className="card-body">
                         <h5 className="card-title">{department}</h5>
                         <p className="card-text">{salary} ₺</p>
+                        <Link to={`/edit-user/${id}`} className="btn btn-info  float-right" >Düzenle</Link>
                     </div>
                 </div> : <p>Kayıt bulunamadı</p>
             )

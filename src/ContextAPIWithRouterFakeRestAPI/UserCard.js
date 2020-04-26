@@ -15,7 +15,11 @@ class UserCard extends Component {
     }
 
     DeleteUser = async (dispatch, e) => {
-        const { id } = this.props;
+        const { id, fullname } = this.props;
+
+        if (!window.confirm(`${fullname} ait bilgileri silmek istediğinizden emin misiniz ?`))
+            return;
+
         await axios.delete(`http://localhost:3005/users/${id}`);
         dispatch({ type: "DELETE_USER", payload: id });
     }
@@ -32,7 +36,7 @@ class UserCard extends Component {
                         <div className="mb-4">
                             <div className="card">
                                 <div className="card-header d-flex justify-content-between">
-                                    <h4 className="d-inline" onClick={this.ChangeVisible}> {fullname} </h4>
+                                    <h4 className="d-inline" onClick={this.ChangeVisible}> {fullname.toUpperCase()} </h4>
                                     <i onClick={this.DeleteUser.bind(this, dispatch)} className="far fa-trash-alt" style={{ cursor: "pointer" }}></i>
                                 </div>
                                 {isVisible

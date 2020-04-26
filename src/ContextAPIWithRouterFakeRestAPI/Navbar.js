@@ -19,13 +19,6 @@ export default function Navbar() {
                     <li className="nav-item">
                         <Link to="/add-user" className="nav-link">Yeni Kullanıcı</Link>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/">Home (TAG A)</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/users">Kullanıcılar (TAG A)</a>
-                    </li>
-
                 </ul>
             </div>
         </nav>
